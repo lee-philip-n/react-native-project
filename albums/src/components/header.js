@@ -3,16 +3,18 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 // Create a component
-const Header = () => {
+const Header = (props) => {
   const { textStyle, viewStyle } = styles;
+  const { headerText } = props;
   
   return (
     <View style={viewStyle}>
-      <Text style={textStyle}>Albums!</Text>
+      <Text style={textStyle}>{headerText}</Text>
     </View>
   );
 };
 
+//CSS - uses flexbox properties
 const styles = {
   textStyle: {
     fontSize: 20
