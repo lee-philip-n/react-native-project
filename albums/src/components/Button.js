@@ -2,11 +2,14 @@ import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
 //check react-native docs for Touchable (button) event
-const Button = () => {
+//children = the component within the parent (ie text in AlbumDetail component)
+const Button = ({ handlePress, children }) => {
   const { buttonStyle, textStyle } = styles;
   return (
-    <TouchableOpacity style={buttonStyle} onPress={() => console.log('pressed!')}>
-      <Text style={textStyle}>Click Me</Text>
+    <TouchableOpacity style={buttonStyle} onPress={handlePress}>
+      <Text style={textStyle}>
+        {children}
+      </Text>
     </TouchableOpacity>
   )
 }

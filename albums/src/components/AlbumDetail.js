@@ -1,12 +1,13 @@
 // Import a library to help create a component
 import React, { Component } from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, Linking } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
 import Button from './Button';
 
+//check react-native docs for Linking (redirect to other mobile apps) event
 const AlbumDetail = ({ album }) => {
-  const { title, artist, thumbnail_image, image } = album;
+  const { title, artist, thumbnail_image, image, url } = album;
   const { headerContentStyle, headerTextStyle, thumbnailStyle, thumbnailContainerStyle, imageStyle } = styles;
 
   return (
@@ -24,7 +25,9 @@ const AlbumDetail = ({ album }) => {
         <Image style={imageStyle} source={{ uri: image }} />
       </CardSection>
       <CardSection>
-        <Button />
+        <Button handlePress={() => Linking.openURL(url)}>
+          Buy Now
+        </Button>
       </CardSection>
     </Card>
   )
