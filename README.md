@@ -14,9 +14,9 @@ Start iOS Simulator:
 1) run "react-native run-ios" in the project directory
   
   if error message: 
+    
     "Found Xcode project albums.xcodeproj
     xcrun: error: unable to find utility "instruments", not a developer tool or in PATH
-
     Command failed: xcrun instruments -s
     xcrun: error: unable to find utility "instruments", not a developer tool or in PATH
 
