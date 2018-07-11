@@ -1,7 +1,8 @@
 // Import a library to help create a component
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { ScrollView } from 'react-native';
 import axios from 'axios';
+import AlbumDetail from './AlbumDetail';
 
 
 // Create a Class Component
@@ -14,40 +15,30 @@ class AlbumList extends Component {
   }
 
   //lifecycle event - componentWillMount loads after app (HTTP requests)
-  componentWillMount() {
+  componentDidMount() {
     axios.get('https://rallycoding.herokuapp.com/api/music_albums')
       .then(response => this.setState({
         albums: response.data,
       }));
   }
 
+  renderAlbums() {
+    return this.state.albums.map(album => <AlbumDetail key={album.title} album={album} />);
+  }
+
+  //ScrollView to enable scrolling
   render() {
-    console.log(this.state);
     return (
-      <View>
-        <Text>Album List</Text>
-      </View>
+      <ScrollView>
+        {this.renderAlbums()}
+      </ScrollView>
     );
   };
 }
 
 //CSS - uses flexbox properties
 const styles = {
-  textStyle: {
-    fontSize: 20
-  },
-  viewStyle: {
-    backgroundColor: '#F8F8F8',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 60,
-    paddingTop: 15,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    elevation: 2,
-    position: 'relative',
-  },
+  
 };
 
 // Make component available to other parts of the app

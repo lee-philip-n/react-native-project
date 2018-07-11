@@ -4,6 +4,7 @@ import { View } from 'react-native';
 const CardSection = (props) => {
   const { containerStyle } = styles;
 
+  //props.children = the component within the parent (ie Text component in AlbumDetail component)
   return (
     <View style={containerStyle}>
       {props.children}
@@ -11,6 +12,7 @@ const CardSection = (props) => {
   )
 }
 
+//CSS - uses flexbox properties
 const styles = {
   containerStyle: {
     borderBottomWidth: 1,

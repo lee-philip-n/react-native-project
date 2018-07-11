@@ -1,13 +1,14 @@
 // Import a library to help create a component
 import React from 'react';
 import { View, AppRegistry } from 'react-native';
-import Header from './src/components/header';
+import Header from './src/components/Header';
 import AlbumList from './src/components/AlbumList';
 
 // Create a component
 const App = () => {
+  //style={{ flex: 1 }} is necessary so everything shows up when scrolling
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <Header headerText={'Albums'}/>
       <AlbumList />
     </View>

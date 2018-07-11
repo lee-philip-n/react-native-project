@@ -1,33 +1,58 @@
 // Import a library to help create a component
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Image } from 'react-native';
+import Card from './Card';
+import CardSection from './CardSection';
+import Button from './Button';
 
-const AlbumDetail = (props) => {
-  const { title, url, image } = props.album;
-  const { textStyle, viewStyle } = styles;
+const AlbumDetail = ({ album }) => {
+  const { title, artist, thumbnail_image, image } = album;
+  const { headerContentStyle, headerTextStyle, thumbnailStyle, thumbnailContainerStyle, imageStyle } = styles;
 
   return (
-    <View style={viewStyle}>
-      <Text>{title}</Text>
-    </View>
+    <Card>
+      <CardSection>
+        <View style={thumbnailContainerStyle}>
+          <Image style={thumbnailStyle} source={{ uri: thumbnail_image }} />
+        </View>
+        <View style={headerContentStyle}>
+          <Text style={headerTextStyle}>{title}</Text>
+          <Text>{artist}</Text>
+        </View>
+      </CardSection>
+      <CardSection>
+        <Image style={imageStyle} source={{ uri: image }} />
+      </CardSection>
+      <CardSection>
+        <Button />
+      </CardSection>
+    </Card>
   )
 }
 
 //CSS - uses flexbox properties
 const styles = {
-  textStyle: {
-    fontSize: 20
+  headerContentStyle: {
+    flexDirection: 'column',
+    justifyContent: 'space-around',
   },
-  viewStyle: {
-    backgroundColor: '#F8F8F8',
+  headerTextStyle: {
+    fontSize: 18,
+  },
+  thumbnailStyle: {
+    height: 50,
+    width: 50,
+  },
+  thumbnailContainerStyle: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: '25%',
-    margin: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    elevation: 2,
+    marginLeft: 10,
+    marginRight: 10,
+  },
+  imageStyle: {
+    height: 350,
+    flex: 1,
+    width: null,
   },
 };
 
