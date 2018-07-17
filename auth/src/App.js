@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import firebase from 'firebase';
-
 import config from '../config';
 //automatically connects to index.js if it exists
 import { Header, Button, Spinner } from './components/common';
@@ -33,6 +32,7 @@ class App extends Component {
     });
   }
 
+  //firebase.auth().signOut() = signout of account
   renderContent() {
     switch (this.state.loggedIn) {
       case true:
