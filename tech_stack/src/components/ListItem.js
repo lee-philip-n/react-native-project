@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 
 class ListItem extends Component {
   //Animation lifeCycle (called whenever the component is about to be rerendered)
-  componentWillUpdate() {
+  componentDidUpdate() {
     LayoutAnimation.spring();
   }
 
